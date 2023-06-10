@@ -17,25 +17,23 @@
             android:layout_height="wrap_content">
 
             <!-- Toolbar -->
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Container untuk Fragments -->
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="670dp"
+            android:layout_weight="1">
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-        <!-- Container untuk Fragments -->
-        <FrameLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+        </FrameLayout>
 
         <!-- Bottom Navigation -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -44,6 +42,7 @@
             android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
             app:menu="@menu/bottom_nav_menu" />
+
 
     </LinearLayout>
 
@@ -55,5 +54,11 @@
         android:layout_gravity="start"
         app:menu="@menu/nav_menu" />
 
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </androidx.drawerlayout.widget.DrawerLayout>
 

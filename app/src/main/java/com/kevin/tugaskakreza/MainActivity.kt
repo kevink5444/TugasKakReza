@@ -32,17 +32,49 @@ class MainActivity : AppCompatActivity() {
 
         recyclerViewAdapter = RecyclerViewAdapter(itemList)
         recyclerView.adapter = recyclerViewAdapter
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_home -> {
+                    // Tampilkan fragment Home
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.menu_search -> {
+                    // Tampilkan fragment Search
+                    replaceFragment(SearchFragment())
+                    true
+                }
+                R.id.menu_favorite -> {
+                    // Tampilkan fragment Favorite
+                    replaceFragment(FavoriteFragment())
+                    true
+                }
+                R.id.menu_settings -> {
+                    // Tampilkan fragment Settings
+                    replaceFragment(SettingsFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+
         // Tampilkan fragment Home saat pertama kali dibuka
         replaceFragment(HomeFragment())
-
     }
 
-    private fun replaceFragment(fragment: HomeFragment) {
+    private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
             .commit()
     }
-
+    override fun onResume() {
+        super.onResume()
+        val fragment = supportFragmentManager.findFragmentById(R.id.container)
+        if (fragment is HomeFragment) {
+            fragment.updateRecyclerViewVisibility()
+        }
+    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
@@ -63,5 +95,6 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
 
         }
+
     }
 }
