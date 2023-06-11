@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.kevin.tugaskakreza
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
