@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         setSupportActionBar(toolbar)
         val itemList = listOf("Budi", "Adi", "Sandi", "Nando", "Nanda")
-
         recyclerViewAdapter = RecyclerViewAdapter(itemList)
         recyclerView.adapter = recyclerViewAdapter
 
